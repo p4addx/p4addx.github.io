@@ -3,7 +3,7 @@
 # Для файлов с латинскими именами подписи берутся из works/titles.json
 import json, os, re, urllib.parse
 exts = {'.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'}
-ORDER = ['Фирменный стиль', 'Ретушь']  # порядок категорий в галерее
+ORDER = ['Фирменный стиль', 'Логотипы', 'Ретушь']  # порядок категорий в галерее
 try:
     meta = json.load(open('works/titles.json', encoding='utf-8'))
 except Exception:
