@@ -270,6 +270,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 .cmh b{position:relative;width:44px;height:44px;border-radius:50%;background:var(--ac);color:#fff6f1;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 2px 14px rgba(0,0,0,.5)}
 .cmh:focus-visible b{outline:2px solid #fff;outline-offset:2px}
 .cml{position:absolute;top:10px;left:10px;padding:4px 8px;background:rgba(8,6,22,.7);color:#f1ebfb;pointer-events:none}.cml.r{left:auto;right:10px}
+.gi.wd{grid-column:1/-1;aspect-ratio:auto}.gi.wd img{height:auto}.gi.wd span{position:static}
 .gi .bf{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}
 .gi .bl{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.3);pointer-events:none}
 .gi .bdg{position:absolute;top:8px;left:8px;padding:3px 7px;font-style:normal;background:var(--ac);color:#fff6f1;letter-spacing:.06em;pointer-events:none}
@@ -593,6 +594,7 @@ var cp=$('cp');if(cp)cp.onclick=function(){var t='p4addx@gmail.com',ok=function(
   box.hidden=false;
   function draw(cat){cur=cat?W.filter(function(w){return w.cat===cat}):W;
    g.innerHTML=cur.map(function(w,i){return '<button type="button" class="gi" data-i="'+i+'" aria-label="Открыть: '+qa(w.title||'работа')+'"><img src="'+qa(w.src)+'" alt="'+qa(w.title||'Работа')+'" loading="lazy" decoding="async">'+(w.before?'<img class="bf" src="'+qa(w.before)+'" alt="" loading="lazy" decoding="async"><i class="bl"></i><em class="bdg lab">До / После</em>':'')+'<span class="lab">'+qa(w.title||'')+'</span></button>'}).join('');
+   [].forEach.call(g.querySelectorAll('.gi'),function(b){var im=b.querySelector('img');function k(){if(im.naturalHeight&&im.naturalWidth/im.naturalHeight>2.2)b.classList.add('wd')}if(im.complete)k();else im.addEventListener('load',k)});
    [].forEach.call(f.children,function(b){b.setAttribute('aria-pressed',String((b.getAttribute('data-c')||'')===(cat||'')))})}
   if(cats.length>1){f.innerHTML=['Все'].concat(cats).map(function(c,i){return '<button type="button" class="chip" data-c="'+(i?qa(c):'')+'" aria-pressed="false">'+qa(c)+'</button>'}).join('');
    f.onclick=function(e){var b=e.target.closest('.chip');if(b)draw(b.getAttribute('data-c'))}}
